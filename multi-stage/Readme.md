@@ -1,7 +1,7 @@
 **Multi Stage Build**
+A multi stage build helps to reduce the final size of an image.
 
-This is a multistage build example. 
-
+**About this example**
 It has an ***app*** folder that contains a simple java maven project. There is a pom file(inside the app folder) which is gonna be used by maven to build the jar.
 
 The Docker file contains two ***FROM*** (multi stage)
@@ -26,6 +26,5 @@ The size of this image is gonna be around 4MB
 
 So, we would think that he final size would be around 234 MB but it won't.
 
-**
-The last ***FROM*** will be always the one that is gonna be in the container. The previous ones are just temporary and used to download dependencies, build/compile things for the final result. In this example, it means that the lines that are before the last ***FROM*** are gonna be evaluated but it is just going to keep the jar that is copied into the container
-**
+
+The last ```FROM``` will be always the one that is gonna be in the container. The lines before are just temporary and used to download dependencies, build/compile things for the final result. In this example, it means that the lines that are before the last ```FROM``` are gonna be evaluated but it is just going to keep the jar that is copied into the container
